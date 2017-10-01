@@ -33,7 +33,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Robot Line</h1>
         </header>
           {
             this.state.started ? (
@@ -50,6 +50,10 @@ class App extends Component {
               </form>
             )
           }
+        <footer>
+          Simple implementation of XKCD Puzzle <a href="http://wiki.xkcd.com/irc/Puzzles#Robots_on_a_number_line" target="_blank">Robots on a number line</a><br/>
+          <a href="https://carlomartinucci.github.io/" target="_blank">Carlo Martinucci</a>, 2017
+        </footer>
       </div>
     );
   }
