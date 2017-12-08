@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Position = (props) => {
   return (
@@ -7,7 +7,7 @@ const Position = (props) => {
         {props.position}
       </div>
       {props.imgs.map(({src, className, key}) => (
-        <img key={key} src={src} className={className} />
+        <img key={key} src={src} className={className} alt='' />
       ))}
     </div>
   )

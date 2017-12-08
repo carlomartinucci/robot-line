@@ -89,7 +89,7 @@ class Game extends Component {
     return (robotColor) => {
       console.log("indexTo", index, robotColor)
       this.setState((prevState) => {
-        const {commandIndex, positions} = prevState[robotColor]
+        const {positions} = prevState[robotColor]
         const lastPosition = positions[positions.length - 1]
         return {[robotColor]: {
           commandIndex: index,
