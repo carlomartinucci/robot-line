@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 import Game from './Game.js'
 
+// LS0LLLLLL3
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      commands: "LS0LLLLLL3",
+      commands: "",
       started: false
     }
     this.handleChange = this.handleChange.bind(this);
