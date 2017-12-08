@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Line from './Line.js';
+import Commands from './Commands.js';
 
 class Game extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class Game extends Component {
       red: {
         commandIndex: 0,
         positions: [props.redPosition]
-      },
+      }
     }
     this.handleClick = this.handleClick.bind(this)
     this.move = this.move.bind(this)
@@ -36,9 +38,14 @@ class Game extends Component {
   }
 
   handleClick() {
+    if (this.won()) return
     console.log(this.state)
     this.tick("red")
     this.tick("blue")
+  }
+
+  won() {
+    return this.state.blue.positions[this.state.blue.positions.length - 1] === this.state.red.positions[this.state.red.positions.length - 1]
   }
 
   tick(robotColor) {
@@ -93,24 +100,29 @@ class Game extends Component {
   }
 
   render() {
+    const won = this.won()
     return (
       <div className="Game">
-        <div>commands: {this.state.commands}</div>
+        <Commands
+          commands={this.state.commands}
+          blueIndex={this.state.blue.commandIndex}
+          redIndex={this.state.red.commandIndex}
+        />
         <div>Turn # {this.state.blue.positions.length}</div>
+        {
+          won ?
+          <div>You won!</div> :
+          <button onClick={this.handleClick}>Play Next</button>
+        }
+        <br/>
         <br/>
 
-        <div>BLUE</div>
-        <div>position: {this.state.blue.positions[this.state.blue.positions.length - 1]}</div>
-        <div>next action: {this.state.commands[this.state.blue.commandIndex]}</div>
-        <br/>
-        
-        <div>RED</div>
-        <div>position: {this.state.red.positions[this.state.red.positions.length - 1]}</div>
-        <div>next action: {this.state.commands[this.state.red.commandIndex]}</div>
-        <br/>
-
-        <div>parachutes: {this.state.blue.positions[0]}, {this.state.red.positions[0]}</div>
-        <button onClick={this.handleClick}>click</button>
+        <Line
+          bluePosition={this.state.blue.positions[this.state.blue.positions.length - 1]}
+          redPosition={this.state.red.positions[this.state.red.positions.length - 1]}
+          blueParachute={this.state.blue.positions[0]}
+          redParachute={this.state.red.positions[0]}
+        />
       </div>
     );
   }

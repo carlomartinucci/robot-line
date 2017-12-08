@@ -1,5 +1,108 @@
+.App {
+  text-align: center;
+}
+
+header {
+  background-color: #222;
+  height: 100px;
+  padding: 20px;
+  color: white;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.title img {
+  filter: invert(100%);
+  width: 25px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: right;
+  padding: 10px;
+  background-color: white;
+  border-top: 1px solid #222;
+}
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.position {
+  position: relative;
+  flex: 0 0 32px;
+  height: 32px;
+  margin: 10px 4px;
+  background-color: rgba(32,32,32,0.2);
+}
+
+.position img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 32px;
+  width: 32px;
+}
+
+.position .number {
+  position: absolute;
+  top: -15px;
+  line-height: 15px;
+  left: 0;
+  right: 0;
+}
+
+.position img.blue {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,255,0.5);
+  -moz-transition: background .3s linear;
+  -webkit-transition: background .3s linear;
+  -o-transition: background .3s linear;
+  transition: background .3s linear;
+}
+
+.position img.red {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,0,0,0.5);
+  -moz-transition: background .3s linear;
+  -webkit-transition: background .3s linear;
+  -o-transition: background .3s linear;
+  transition: background .3s linear;
 }
