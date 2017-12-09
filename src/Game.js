@@ -14,9 +14,11 @@ class Game extends Component {
       red: {
         commandIndex: 0,
         positions: [props.redPosition]
-      }
+      },
+      play: false
     }
     this.handleClick = this.handleClick.bind(this)
+    this.togglePlay = this.togglePlay.bind(this)
     this.move = this.move.bind(this)
     this.skipIf = this.skipIf.bind(this)
     this.indexTo = this.indexTo.bind(this)
@@ -35,6 +37,25 @@ class Game extends Component {
       8: this.indexTo(8),
       9: this.indexTo(9),
     }
+  }
+
+  togglePlay() {
+    this.setState(prevState => {
+      let play
+      if (prevState.play) {
+        clearInterval(prevState.play)
+        play = false
+      } else {
+        play = setInterval(()=>{
+          this.tick("red")
+          this.tick("blue")
+          if (this.won()) {
+            this.togglePlay()
+          }
+        }, 1000)
+      }
+      return {play}
+    })
   }
 
   handleClick() {
@@ -112,7 +133,7 @@ class Game extends Component {
         {
           won ?
           <div>You won!</div> :
-          <button onClick={this.handleClick}>Play Next</button>
+          <button onClick={this.togglePlay}>{this.state.play ? "Stop" : "Auto Play"}</button>
         }
         <br/>
         <br/>

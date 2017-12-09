@@ -59,6 +59,10 @@ body {
   background-color: rgba(32,32,32,0.2);
 }
 
+.position.no-margin {
+  margin: 10px 0;
+}
+
 .position img {
   position: absolute;
   left: 0;
@@ -105,4 +109,8 @@ body {
   -webkit-transition: background .3s linear;
   -o-transition: background .3s linear;
   transition: background .3s linear;
+}
+
+.position .command {
+  line-height: 32px;
 }
