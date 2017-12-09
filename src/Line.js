@@ -24,7 +24,6 @@ const Line = (props) => {
     return imgs
   }
 
-  console.log(minPosition, maxPosition)
   return (
     <div className="line">
       {positions.map((position) => <Position key={position} position={position} imgs={positionToImages(position)}/>)}

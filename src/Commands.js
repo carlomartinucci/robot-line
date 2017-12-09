@@ -1,5 +1,4 @@
 import React from 'react';
-import Position from './Position.js';
 
 const Commands = ({commands, blueIndex, redIndex}) => {
   return (

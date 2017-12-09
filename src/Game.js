@@ -60,7 +60,7 @@ class Game extends Component {
 
   handleClick() {
     if (this.won()) return
-    console.log(this.state)
+    // console.log(this.state)
     this.tick("red")
     this.tick("blue")
   }
@@ -79,7 +79,7 @@ class Game extends Component {
 
   move (direction) {
     return (robotColor) => {
-      console.log("move", direction, robotColor)
+      // console.log("move", direction, robotColor)
       this.setState((prevState) => {
         const {commandIndex, positions} = prevState[robotColor]
         const lastPosition = positions[positions.length - 1]
@@ -93,7 +93,7 @@ class Game extends Component {
 
   skipIf () {
     return (robotColor) => {
-      console.log("skipIf", robotColor)
+      // console.log("skipIf", robotColor)
       this.setState((prevState) => {
         const {commandIndex, positions} = prevState[robotColor]
         const lastPosition = positions[positions.length - 1]
@@ -108,7 +108,7 @@ class Game extends Component {
 
   indexTo (index) {
     return (robotColor) => {
-      console.log("indexTo", index, robotColor)
+      // console.log("indexTo", index, robotColor)
       this.setState((prevState) => {
         const {positions} = prevState[robotColor]
         const lastPosition = positions[positions.length - 1]
